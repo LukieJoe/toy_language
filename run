@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $1 ]
+then
+	cat $1
+	echo ------------------------------------------------
+	# cat $1 | sed "s|//.*||g" | python3 repl.py -full
+	cat $1 | sed "s|//.*||g" | python3 lazy_repl.py -full
+else
+	echo "./run <filename>"
+fi

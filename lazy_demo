@@ -1,0 +1,70 @@
+b=2
+a=1+2
+x=a+b
+print x
+
+c = (\ a b ; ret a - b; done;)
+y = -c 1 2
+print y 
+
+d = \ x y ; ret c; done;
+z = (5 1 1 2) d + 6
+print z
+
+a=read
+print a
+
+sub1 = \ x; ret x-1; done;
+a=1+2
+while a;
+	a : a - 1
+done
+print a
+
+_rev = \ z x c v b n m j k l o p;
+	ret o l k j m n b v c x z p;
+done
+
+a = 104 101 108 108 111 32 119 111 114 108 100 10 
+print a
+
+a sprint
+sprint (a _rev)
+
+b = (string Hello__World_n) _rev
+print b 
+b sprint
+
+a = 0 104 101 108 108 111 32 119 111 114 108 100 10
+sprint (a)
+10 sprint
+
+reverse = \;
+	_A = \ a b;
+		if a;
+			// _A a b
+			ret b _A a;
+		done;
+		else;
+			ret b a;
+		done;
+	done;
+
+	d = a _A
+	while d;
+		// walk the 0 to the front
+		// sprint (d), : to resolve self non-lazy
+		d : d _A
+	done;
+	((d) 10) sprint
+	// need a way to force before return
+	d : d
+	ret d 
+done;
+
+x = reverse
+
+sprint (x) 10
+
+// F
+($ a b; ret a+b; done;) 30 40 10 sprint

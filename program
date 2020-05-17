@@ -1,0 +1,65 @@
+b=2
+d=0
+
+f=(\ a b ; ret a - b; done;)
+
+print b d
+d=read
+print d
+
+a=5;
+while a;
+	a=a-1;
+	while b;
+		b=b-1;d=d+1
+	done;
+done;
+
+proc _A d
+	d=d+10
+	ret d
+done
+
+proc _B
+	z=10
+	d=z 
+	ret _A (d)
+done;
+
+a=0;
+if a;
+	b=a;
+done;
+else;if;
+	c=15^2;
+	done;
+else;done
+done
+
+f=_B
+
+A=0;B=0
+// A and B
+if A;
+	if B;
+	;
+	done;
+	else;
+	done
+done;
+else;
+done
+
+// A and not B
+if A;if B;done;
+	else;
+	;
+	done
+done;
+else;
+done
+
+d=read+5
+print d
+d=read
+print d

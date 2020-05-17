@@ -1,0 +1,51 @@
+BNF Language
+
+<stmts>	:=	empty
+			<stmt> <stmts>
+
+<stmt>	:=	<expr>
+			<asn>
+			<cond>
+			<loop>
+			<proc>
+			<print>
+			<ret>
+
+<ret>	:=	ret <expr> SEP
+
+<print>	:=	print <param> SEP
+
+<expr>	:=	SEP
+			TOKEN <expr>
+
+<expr>	:=	<shunting_yard>
+
+<asn>	:=	ID ASN <expr> SEP
+
+<cond>	:=	IF <expr> SEP <stmts> DONE SEP ELSE <stmts> DONE SEP
+
+<loop>	:=	WHILE <expr> SEP <stmts> DONE SEP
+
+<proc>	:=	PROC ID <param> SEP <stmts> DONE SEP
+
+<param>	:=	SEP
+			ID <param>
+
+Operations:
+	INPUT : read
+	NEG   : - <op>
+	PAREN : ( <expr> )
+	EXP   : <op> ^ <op>
+	MULT  : <op> * <op>
+	DIVIDE: <op> / <op>
+	ADD   : <op> + <op>
+	MINUS : <op> - <op>
+	FUNC  : \ <param> SEP <stmts> done SEP
+
+TYPE SYSTEM
+	number of elements in the stack
+	<function> = -<length of function param list>
+	<elements> + <functions>
+	flatten everything
+	enforce exec of only >0 types
+	<=0 types are partially applied functions

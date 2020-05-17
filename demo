@@ -1,0 +1,64 @@
+b=2
+a=1+2
+a=a+b
+print a
+
+c = (\ a b ; ret a - b; done;)
+c = -c 1 2
+print c 
+
+c = (\ a b ; ret a - b; done;)
+d = (\ x y ; ret c; done;)
+z = (5 1 1 2) d + 6
+print z 
+
+a=read
+
+a=1+2
+while a;
+	a=a-1;
+done
+print a
+
+done
+
+_rev = \ z x c v b n m j k l o p;
+	ret o l k j m n b v c x z p;
+done
+
+a = 104 101 108 108 111 32 119 111 114 108 100 10 
+print a
+
+a sprint
+sprint (a _rev)
+b=(string Hello__World_n _rev)
+
+print b
+b sprint
+
+a = 0 104 101 108 108 111 32 119 111 114 108 100 10
+sprint (a)
+
+reverse = \;
+	proc _A a b;
+		if a;
+			ret b _A a;
+		done;
+		else;
+			ret b a;
+		done;
+	done;
+
+	d = a _A
+	while d;
+		// walk the 0 to the front
+		// sprint (d)
+		d = d _A
+	done;
+	ret d
+done;
+
+d = reverse
+sprint (d) 10
+
+($ a b; ret a+b; done;) 30 40 10 sprint
